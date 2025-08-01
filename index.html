@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ServeKart – Home Services</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 👇 Add this part for horizontal layout */
+.sub-services {
+  display: flex;
+  flex-wrap: wrap; /* OR use overflow-x: auto for scrollable row */
+  gap: 20px;
+  justify-content: start;
+  align-items: center;
+}
+
+.sub-services div {
+  text-align: center;
+  width: 100px;
+}
+
+.sub-services img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.section-gap {
+  margin-top: 20px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner">
+      <h1>What are you looking for?</h1>
+      <div class="search-group">
+        <section class="looking-for-section">
+  <input type="text" id="searchInput" placeholder="e.g. AC Repair, Cleaning…">
+  <ul id="suggestions"></ul>
+</section>
+
+        <select>
+          <option>Select your city</option>
+          <option>Delhi</option>
+          <option>Mumbai</option>
+          <option>Bengaluru</option>
+        </select>
+        <button>Search</button>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Popular Services -->
+  <section class="popular">
+    <h2>Popular Services</h2>
+    <div class="popular-grid"> 
+
+      <div onclick="openModal()" style="cursor: pointer;">
+  <img src="https://i.pinimg.com/1200x/e6/32/f2/e632f24bb7763d762ba2905198cb6645.jpg">
+  <p>AC Repair & Appliance</p>
+</div>
+
+     <!----- <div><img src="https://i.pinimg.com/1200x/e6/32/f2/e632f24bb7763d762ba2905198cb6645.jpg"><p>AC Repair & Appliance</p></div>-->
+      <div><img src="https://i.pinimg.com/736x/10/2d/5e/102d5e6122b0675ffe9d8d600ce2045d.jpg"><p>Home Cleaning</p></div>
+      <div><img src="https://i.pinimg.com/1200x/40/f5/51/40f551f1cb4ed3d8a3116c52a81e7552.jpg"><p>Electrician,
+        Plumber & Carpenter</p></div>
+      <div><img src="https://i.pinimg.com/474x/7b/31/9b/7b319b5f33ae91e1653b6e394fad6909.jpg"><p>Native Water Purifier</p></div>
+      <div><img src="https://i.pinimg.com/736x/e9/5f/56/e95f565fedb01a4786ab16175c1ccf7d.jpg"><p>Paiting & 
+        Waterproofing</p></div>
+        <div><img src="https://i.pinimg.com/1200x/58/97/6c/58976c80983be099802a0f5643512a84.jpg"><p>Wall Panels</p></div>
+        <div><img src="https://i.pinimg.com/736x/e7/1f/6d/e71f6d2d3205e937dd34ffd728159ad3.jpg"><p> Car Wash</p></div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why">
+    <h2>Why Choose ServeKart?</h2>
+    <div class="why-grid">
+      <div><img src="https://i.imgur.com/mjE2XjR.png"><h3>Verified Pros</h3><p>Background checked experts.</p></div>
+      <div><img src="https://i.imgur.com/1uFGcQv.png"><h3>Affordable Prices</h3><p>Competitive and transparent.</p></div>
+      <div><img src="https://i.imgur.com/h5Ao1cY.png"><h3>On-Time Service</h3><p>We respect your schedule.</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>Customer Reviews</h2>
+    <div class="testi-cards">
+      <div><p>“Quick & professional. AC fixed same day!”</p><span>– Riya Sharma</span></div>
+      <div><p>“Great electrician, quality wiring repair.”</p><span>– Rohit Mehta</span></div>
+      <div><p>“House cleaned spotless—so happy!”</p><span>– Megha Singh</span></div>
+    </div>
+  </section>
+
+  <!-- Download App -->
+  <section class="download">
+    <h2>Get the ServeKart App</h2>
+    <p>Book services seamlessly from your phone</p>
+    <div class="app-links">
+      <img src="https://i.imgur.com/6gkL7IE.png">
+      <img src="https://i.imgur.com/8iYQvmj.png">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ServeKart. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">About</a><a href="#">Contact</a><a href="#">Terms</a><a href="#">Privacy</a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+<div id="acModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>AC & Appliance Repair</h2>
+
+    <h3>Home appliances</h3>
+    <div class="sub-services">
+      <div><img src="https://i.pinimg.com/1200x/d5/b1/0a/d5b10a464869701a8542414c593100ff.jpg"><p>AC</p></div>
+      <div><img src="https://i.pinimg.com/1200x/80/0e/06/800e061369d58a1e2becf506f979912a.jpg"><p> Washing Machine</p></div>
+      <div><img src="https://i.pinimg.com/1200x/32/75/d9/3275d9624c76f0d9fa5f88e5c4edabbe.jpg"><p>LCD</p></div>
+      <div><img src="https://i.pinimg.com/1200x/de/0d/87/de0d8775d21ffc398bbd2b4e8c061209.jpg"><p>Laptop</p></div>
+      <div><img src="https://i.pinimg.com/736x/cf/c7/69/cfc7696604bf2681924cfd30293eda9f.jpg"><p>Air Cooler</p></div>
+      <div><img src="https://i.pinimg.com/736x/65/c0/87/65c0871e3cd4b4f3ac78f2eac42a4b54.jpg"><p>Geyser</p></div>
+    </div>
+
+    <p class="section-gap"><strong><h3>Kitchen appliances</h3></strong></p>
+<div class="sub-services">
+      <div><img src="https://i.pinimg.com/1200x/af/e2/42/afe24202e3178d4c54a055fc45e104ed.jpg"><p>Water Purifier</p></div>
+      <div><img src="https://i.pinimg.com/736x/5f/bf/7c/5fbf7cd508a89f02c62994fc37a781dc.jpg"><p>Refrigerator</p></div>
+      <div><img src="https://i.pinimg.com/736x/d7/4e/2b/d74e2b6b06e8151f57a0341844ee14e9.jpg"><p>Microwave</p></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function openModal() {
+    document.getElementById("acModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("acModal").style.display = "none";
+  }
+
+  // Optional: Close modal when user clicks outside content
+  window.onclick = function(event) {
+    const modal = document.getElementById("acModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+<script>
+  const services = [
+    "AC",
+    "Washing Machine",
+    "LCD",
+    "Laptop",
+    "Air Cooler",
+    "Geyser",
+    "Microwave",
+    "Refrigerator",
+    "Bathroom Cleaning",
+    "Kitech Cleaning",
+    "Sofa & Carpet Cleaning",
+    "Full Home Cleaning",
+    "Electrician",
+    "Plumber",
+    "Carpenter",
+    "Fan Service",
+    "Full Home Painting",
+    "Car Wash",
+    "Few Walls & Rooms",
+    "Home Repaire & Installation"
+  ];
+
+  const input = document.getElementById("searchInput");
+  const suggestions = document.getElementById("suggestions");
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    suggestions.innerHTML = "";
+
+    if (query) {
+      const matched = services.filter(service =>
+        service.toLowerCase().startsWith(query)
+      );
+
+      matched.forEach(service => {
+        const li = document.createElement("li");
+        li.textContent = service;
+        li.onclick = () => {
+          input.value = service;
+          suggestions.innerHTML = "";
+        };
+        suggestions.appendChild(li);
+      });
+    }
+  });
+
+  // Close suggestions if clicked outside
+  document.addEventListener("click", (e) => {
+    if (!suggestions.contains(e.target) && e.target !== input) {
+      suggestions.innerHTML = "";
+    }
+  });
+</script>
+
+</html>
+
+
+
