@@ -1,0 +1,61 @@
+<!-- client/service.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Service Booking - ServeKart</title>
+</head>
+<body>
+  <h1>Book a Service</h1>
+  <form action="http://localhost:3000/book" method="POST">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Phone:</label><br>
+    <input type="text" name="phone" required><br><br>
+
+    <label>Service Type:</label><br>
+    <select name="service" required>
+      <option value="Electrician">Electrician</option>
+      <option value="Plumber">Plumber</option>
+      <option value="AC Repair">AC Repair</option>
+      <option value="Home Cleaning">Home Cleaning</option>
+    </select><br><br>
+
+    <label>Address:</label><br>
+    <textarea name="address" rows="3" required></textarea><br><br>
+
+    <label>Preferred Date:</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <button type="submit">Book Now</button>
+  </form>
+
+  <!-- Modal -->
+<div id="acModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>AC & Appliance Repair</h2>
+
+    <h3>Home appliances</h3>
+    <div class="sub-services">
+      <div><img src="https://cdn-icons-png.flaticon.com/128/2933/2933916.png"><p>AC</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/10405/10405734.png"><p>Washing Machine</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/1922/1922656.png"><p>Television</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/2920/2920260.png"><p>Laptop</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/2761/2761141.png"><p>Air Cooler</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/744/744465.png"><p>Geyser</p></div>
+    </div>
+
+    <h3>Kitchen appliances</h3>
+    <div class="sub-services">
+      <div><img src="https://cdn-icons-png.flaticon.com/128/337/337948.png"><p>Water Purifier</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/10405/10405922.png"><p>Refrigerator</p></div>
+      <div><img src="https://cdn-icons-png.flaticon.com/128/5582/5582522.png"><p>Microwave</p></div>
+    </div>
+  </div>
+</div>
+
+  
+</body>
+</html>
